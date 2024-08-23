@@ -1,0 +1,8 @@
+apiVersion: platform.acme.co/v1alpha1
+kind: Network
+metadata:
+  name: my-network-resource
+  namespace: default
+spec:
+  parameters:
+    autoCreateSubnetworks: true
