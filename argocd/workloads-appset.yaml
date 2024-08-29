@@ -4,6 +4,8 @@ metadata:
   name: csb-workloads
   namespace: argocd
 spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
   generators:
     - matrix:
         generators:
@@ -23,15 +25,15 @@ spec:
 
   template:
     metadata:
-      name: '{{name}}-{{path.basename}}'
+      name: '{{.name}}-{{.path.basename}}'
     spec:
       project: default
       source:
         repoURL: https://github.com/christianh814/akuity-upbound-demo
-        path: '{{path}}'
+        path: '{{.path.path}}'
         targetRevision: HEAD
       destination:
-        name: '{{name}}'
+        name: '{{.name}}'
       syncPolicy:
         automated:
           prune: true

@@ -4,6 +4,8 @@ metadata:
   name: infra-upbound
   namespace: argocd
 spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
   generators:
   - git:
       repoURL: https://github.com/christianh814/akuity-upbound-demo
@@ -12,13 +14,13 @@ spec:
       - path: upbound/*
   template:
     metadata:
-      name: '{{path.basename}}'
+      name: '{{.path.basename}}'
     spec:
       project: default
       source:
         repoURL: https://github.com/christianh814/akuity-upbound-demo
         targetRevision: HEAD
-        path: '{{path}}'
+        path: '{{.path.path}}'
       destination:
         name: upbound
       syncPolicy:
