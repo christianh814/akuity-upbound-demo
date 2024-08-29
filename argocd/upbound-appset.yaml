@@ -20,7 +20,7 @@ spec:
         targetRevision: main
         path: '{{ path }}'
       destination:
-        server: upbound
+        name: upbound
       syncPolicy:
         automated:
           prune: true
