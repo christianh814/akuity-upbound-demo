@@ -10,8 +10,11 @@ spec:
           - clusters:
               selector:
                 matchExpressions:
-                - {key: 'akuity.io/argo-cd-cluster-name', operator: NotIn, values: [in-cluster]}
-                - {key: 'akuity.io/integration-name', operator: NotIn, values: [upbound]}
+                  - key: "akuity.io/argo-cd-cluster-name"
+                    operator: NotIn
+                    values: 
+                      - in-cluster
+                      - upbound
           - git:
               repoURL: https://github.com/christianh814/akuity-upbound-demo
               revision: main
