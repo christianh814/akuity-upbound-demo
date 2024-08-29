@@ -1,0 +1,44 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: csb-workloads
+  namespace: argocd
+spec:
+  generators:
+    - matrix:
+        generators:
+          - clusters:
+              selector:
+                matchExpressions:
+                - {key: 'akuity.io/argo-cd-cluster-name', operator: NotIn, values: [in-cluster]}
+                - {key: 'akuity.io/integration-name', operator: NotIn, values: [upbound]}
+          - git:
+              repoURL: https://github.com/christianh814/akuity-upbound-demo
+              revision: main
+              directories:
+              - path: csb/*
+
+  template:
+    metadata:
+      name: '{{ name }}-{{ path.basename }}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/christianh814/akuity-upbound-demo
+        path: '{{ path }}'
+        targetRevision: main
+      destination:
+        name: '{{ name }}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+          - ServerSideApply=true
+        retry:
+          limit: -1
+          backoff:
+            duration: 5s
+            maxDuration: 1m30s
+            factor: 2

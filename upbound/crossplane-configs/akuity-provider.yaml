@@ -1,0 +1,8 @@
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: akuity
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  package: us-docker.pkg.dev/akuity/crossplane/provider:v0.2.0

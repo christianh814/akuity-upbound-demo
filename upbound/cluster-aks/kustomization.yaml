@@ -5,6 +5,5 @@ commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 
 resources:
-- composite.yaml
-- configuration.yaml
-- network.yaml
+- akuity-managed-cluster.yaml
+- azure-k8s-cluster.yaml

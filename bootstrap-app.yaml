@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: akuity-upbound
+  name: bootstrap
   namespace: argocd
 spec:
   destination:
-    name: upbound
+    name: in-cluster
   source:
-    path: upbound
-    repoURL: 'https://github.com/christianh814/akuity-upbound-demo'
+    path: argocd/
+    repoURL: https://github.com/christianh814/akuity-upbound-demo
     targetRevision: main
   project: default
   syncPolicy:

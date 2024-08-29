@@ -1,0 +1,12 @@
+apiVersion: akuity.crossplane.io/v1alpha1
+kind: ProviderConfig
+metadata:
+  name: akuity
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  organizationId: d1dndlv2vq8e16tw
+  credentialsSecretRef:
+    namespace: crossplane-system
+    name: akuity-provider-secret
+    key: credentials

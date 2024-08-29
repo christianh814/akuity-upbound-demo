@@ -1,0 +1,18 @@
+apiVersion: azure.platformref.upbound.io/v1alpha1
+kind: Cluster
+metadata:
+  name: myaks
+  namespace: default
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  compositeDeletePolicy: Foreground
+  parameters:
+    id: myaks
+    region: eastus
+    version: "1.29"
+    nodes:
+      count: 1
+      instanceType: Standard_B4ms
+  writeConnectionSecretToRef:
+    name: myaks-kubeconfig

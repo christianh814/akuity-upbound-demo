@@ -1,0 +1,17 @@
+apiVersion: core.akuity.crossplane.io/v1alpha1
+kind: Cluster
+metadata:
+  name: myaks
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  forProvider:
+    instanceId: "28gulgxsew3ub6c0"
+    name: "myaks"
+    namespace: "akuity"
+    kubeconfigSecretRef:
+      name: myaks-kubeconfig
+      namespace: default
+    removeAgentResourcesOnDestroy: false
+  providerConfigRef:
+    name: akuity
