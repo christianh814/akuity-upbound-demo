@@ -7,18 +7,18 @@ spec:
   generators:
   - git:
       repoURL: https://github.com/christianh814/akuity-upbound-demo
-      revision: main
+      revision: HEAD
       directories:
       - path: upbound/*
   template:
     metadata:
-      name: '{{ path.basename }}'
+      name: '{{path.basename}}'
     spec:
       project: default
       source:
         repoURL: https://github.com/christianh814/akuity-upbound-demo
-        targetRevision: main
-        path: '{{ path }}'
+        targetRevision: HEAD
+        path: '{{path}}'
       destination:
         name: upbound
       syncPolicy:

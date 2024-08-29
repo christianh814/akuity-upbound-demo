@@ -17,21 +17,21 @@ spec:
                       - upbound
           - git:
               repoURL: https://github.com/christianh814/akuity-upbound-demo
-              revision: main
+              revision: HEAD
               directories:
               - path: csb/*
 
   template:
     metadata:
-      name: '{{ name }}-{{ path.basename }}'
+      name: '{{name }}-{{path.basename }}'
     spec:
       project: default
       source:
         repoURL: https://github.com/christianh814/akuity-upbound-demo
-        path: '{{ path }}'
-        targetRevision: main
+        path: '{{path}}'
+        targetRevision: HEAD
       destination:
-        name: '{{ name }}'
+        name: '{{name}}'
       syncPolicy:
         automated:
           prune: true
