@@ -9,7 +9,8 @@ spec:
   compositeDeletePolicy: Foreground
   parameters:
     id: myaks
-    region: eastus
+    ##region: eastus
+    region: westus
     version: "1.29"
     nodes:
       count: 1
