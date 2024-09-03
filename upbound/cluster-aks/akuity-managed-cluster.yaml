@@ -1,7 +1,7 @@
 apiVersion: core.akuity.crossplane.io/v1alpha1
 kind: Cluster
 metadata:
-  name: myaks
+  name: myaks-akuity
   annotations:
     argocd.argoproj.io/sync-wave: "2"
 spec:
