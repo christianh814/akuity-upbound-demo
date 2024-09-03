@@ -12,6 +12,5 @@ spec:
     kubeconfigSecretRef:
       name: myaks-kubeconfig
       namespace: default
-    removeAgentResourcesOnDestroy: false
   providerConfigRef:
     name: akuity
