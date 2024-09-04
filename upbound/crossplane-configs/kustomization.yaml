@@ -5,6 +5,7 @@ commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 
 resources:
+- akuity-deployment-runtime-config.yaml
 - akuity-provider-config.yaml
 - akuity-provider.yaml
 - azure-configuration-caas.yaml
